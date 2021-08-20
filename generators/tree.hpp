@@ -1,8 +1,32 @@
-//
-// Created by Moses on 2021-07-19.
-//
+#pragma once
+#include "testlib.h"
+#include "graph.hpp"
 
-#ifndef GENLIB_TREE_HPP
-#define GENLIB_TREE_HPP
+Graph<> randomTreeRooted(int N) {
+    Graph<> g(N);
+    for (int i = 2; i <= N; i++)
+        g.addEdge(rnd.next(1, i-1), i);
+    return g;
+}
 
-#endif //GENLIB_TREE_HPP
+Graph<> weightedTreeRooted(int N, int t) {
+    Graph<> g(N);
+    for (int i = 2; i <= N; i++)
+        g.addEdge(rnd.wnext(1, i-1, t), i);
+    return g;
+}
+
+Graph<> starGraphRooted(int N) {
+    Graph<> g(N);
+    for (int i = 2; i <= N; i++)
+        g.addEdge(1, i);
+    return g;
+}
+
+Graph<> lineGraphRooted(int N) {
+    Graph<> g(N);
+    for (int i = 2; i <= N; i++)
+        g.addEdge(i-1, i);
+    return g;
+}
+

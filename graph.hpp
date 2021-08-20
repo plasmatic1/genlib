@@ -70,4 +70,13 @@ public:
             res.addEdge(a, b, w);
         return res;
     }
+
+    Graph shuffleEdges() {
+        Graph res(N());
+        auto clone = _edges;
+        shuffle(clone.begin(), clone.end());
+        for (auto [a, b, w] : clone)
+            res.addEdge(a, b, w);
+        return res;
+    }
 };
